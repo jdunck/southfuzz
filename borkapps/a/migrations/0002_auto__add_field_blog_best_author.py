@@ -5,15 +5,18 @@ from south.v2 import SchemaMigration
 from django.db import models
 
 class Migration(SchemaMigration):
+    depends_on = (
+        ('b', '0001_initial'),
+    )
 
     def forwards(self, orm):
-        
+
         # Adding field 'Blog.best_author'
         db.add_column('a_blog', 'best_author', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['b.Author'], null=True), keep_default=False)
 
 
     def backwards(self, orm):
-        
+
         # Deleting field 'Blog.best_author'
         db.delete_column('a_blog', 'best_author_id')
 

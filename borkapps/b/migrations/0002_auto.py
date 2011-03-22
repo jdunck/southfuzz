@@ -5,9 +5,12 @@ from south.v2 import SchemaMigration
 from django.db import models
 
 class Migration(SchemaMigration):
+    depends_on = (
+        ('a', '0001_initial'),
+    )
 
     def forwards(self, orm):
-        
+
         # Adding M2M table for field contributed_to on 'Author'
         db.create_table('b_author_contributed_to', (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
@@ -18,7 +21,7 @@ class Migration(SchemaMigration):
 
 
     def backwards(self, orm):
-        
+
         # Removing M2M table for field contributed_to on 'Author'
         db.delete_table('b_author_contributed_to')
 

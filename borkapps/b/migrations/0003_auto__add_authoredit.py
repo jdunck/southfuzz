@@ -5,9 +5,11 @@ from south.v2 import SchemaMigration
 from django.db import models
 
 class Migration(SchemaMigration):
-
+    depends_on = (
+        ('a', '0003_auto__add_entry'),
+    )
     def forwards(self, orm):
-        
+
         # Adding model 'AuthorEdit'
         db.create_table('b_authoredit', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
@@ -18,7 +20,7 @@ class Migration(SchemaMigration):
 
 
     def backwards(self, orm):
-        
+
         # Deleting model 'AuthorEdit'
         db.delete_table('b_authoredit')
 
