@@ -80,8 +80,8 @@ TEMPLATE_DIRS = (
 
 INSTALLED_APPS = (
     'south',
-#    'borkapps.a',
-#    'borkapps.b'
+    'borkapps.a',
+    'borkapps.b'
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
